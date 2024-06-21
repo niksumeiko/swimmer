@@ -37,7 +37,7 @@ Deno.serve(async (req) => {
         );
     }
 
-    return new Response(JSON.stringify(new Forecast(location)), {
+    return new Response(JSON.stringify(new Forecast(location, date)), {
         headers: { 'Content-Type': 'application/json' },
     });
 });

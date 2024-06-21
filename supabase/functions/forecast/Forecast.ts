@@ -11,6 +11,8 @@ const MAX_TEMPERATURE_MEASURE = 34;
 export class Forecast {
     public readonly location: { name: string };
 
+    public readonly date: number;
+
     public readonly clouds: number;
 
     public readonly air_temp_c: number;
@@ -19,8 +21,9 @@ export class Forecast {
 
     public readonly waves: number;
 
-    constructor(location: string) {
+    constructor(location: string, date: string) {
         this.location = { name: location };
+        this.date = date;
         this.clouds = getRandomNumber(MIN_CLOUDS_MEASURE, MAX_CLOUDS_MEASURE);
         this.air_temp_c = getRandomNumber(
             MIN_TEMPERATURE_MEASURE,
@@ -33,6 +36,7 @@ export class Forecast {
     toJSON() {
         return {
             location: { name: this.location.name },
+            date: this.date,
             clouds: this.clouds,
             air_temp_c: this.air_temp_c,
             air_temp_f: this.air_temp_f,
